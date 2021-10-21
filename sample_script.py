@@ -8,14 +8,12 @@ driver.maximize_window()
 
 # open the url
 driver.get('https://www.google.com/')
+driver.implicitly_wait(4)
 print('here:', driver.current_url)
 
 search = driver.find_element(By.NAME, 'q')
 search.clear()
 search.send_keys('Dress')
-
-# wait for 4 sec
-sleep(4)
 
 # click search
 button = driver.find_element(By.NAME, 'btnK')

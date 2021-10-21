@@ -17,4 +17,4 @@ def search_amazon(context):
 @then('verify cancel order is executable')
 def verify_cancel_order_is_executable(context):
     element = context.driver.find_element(By.XPATH, "//div[@class='help-content']/h1")
-    assert 'Cancel Items or Orders' in element.text, f"Expected query not in driver.current_url.lower()"
+    assert 'Cancel Items or Orders' in element.text, f"Expected query not in {context.driver.current_url.lower()}"
