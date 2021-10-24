@@ -3,14 +3,14 @@ Feature: Test Scenarios for add to the cart functionality
 
   Scenario: User can add a product to the cart
     Given Open Amazon add Page
-    When Input Coffee into amazon search
+    When Input Watches into amazon search
     And Click amazon search icon
     And Click on the first product
-    #And Store product name
+    And Store product name
     #And Click on product
-    #And Click on add to the cart
-    #And Open cart page
-    #Then Verify cart has 1 item(s)
+    And Click on add to the cart button
+    And Open cart page
+    Then Verify cart has 1 item(s)
 
 Scenario: Logged out user sees Sign in page when clicking Orders
  Given Open Amazon add page

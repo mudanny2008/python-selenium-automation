@@ -24,24 +24,24 @@ def click_first_product(context):
     context.app.search_results_page.click_first_product()
 
 
-@when ('Store product name')
-def get_product_name(context):
-    #context.current_product_name =
-    results = context.driver.find_elements(By.XPATH, "//div[@class='a-section a-spacing-none a-spacing-top-small']/h2/a/span")
-    print(len(results))
-    context.current_product_name = results[2].text
-    print(f'current product: {context.current_product_name}')
-
-#@when('Store product name')
+#@when ('Store product name')
 #def get_product_name(context):
-    #context.current_product_name = context.app.product_page.get_product_name()
+    #context.current_product_name =
+    #results = context.driver.find_elements(By.XPATH, "//div[@class='a-section a-spacing-none a-spacing-top-small']/h2/a/span")
+    #print(len(results))
+    #context.current_product_name = results[2].text
+    #print(f'current product: {context.current_product_name}')
+
+@when('Store product name')
+def get_product_name(context):
+    context.current_product_name = context.app.product_page.get_product_name()
 
 #@when ('Click on product')
-def click_on_product(context):
-    context.driver.find_element(By.XPATH, "//span[@class='a-price']").click()
+#def click_on_product(context):
+    #context.driver.find_element(By.XPATH, "//span[@class='a-price']").click()
 
 
-@when('Click on add to the cart')
+@when('Click on add to the cart button')
 def click_add_to_cart(context):
     context.app.product_page.click_add_to_cart()
     sleep(1)
