@@ -63,3 +63,6 @@ class Page:
 
     def verify_url_contains_query(self, query):
         assert query in self.driver.current_url, f'{query} not in {self.driver.current_url}'
+
+    #def Verify_correct_options_present(self):
+        #self.wait_for_element_appear(*self.SELECTION_ARRIVALS)

@@ -22,3 +22,14 @@ Scenario: 'Your Shopping Cart is empty' shown if no product added
  When Click on cart icon
  Then Verify 'Your Shopping Cart is empty.' text present
 
+Scenario: User can select and search in a department
+  Given Open Amazon add Page
+  When Select department by alias stripbooks
+  And Input Bible into amazon search
+  And Click on Amazon search icon
+  Then Verify books department is selected
+
+Scenario: User can see New Arrivals
+  Given Open Amazon product B074TBCSC8 Page
+  When Hover over new arrivals options
+  Then Verify correct options present

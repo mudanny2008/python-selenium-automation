@@ -6,12 +6,21 @@ from time import sleep
 def open_amazon(context):
     context.app.main_page.open_main_page()
 
-
+@when('Select department by alias {alias}')
+def select_department(context, alias):
+    context.app.header.select_department_by_alias(alias)
 
 @when('Input {search_word} into amazon search')
 def search_amazon(context, search_word):
     #print(search_word)
     context.app.header.input_search(search_word)
+
+@then('Verify books department is selected')
+def verify_correct_department_selected(context):
+    context.app.search_results_page.verify_correct_department_selected()
+
+
+
 
 
 
@@ -78,3 +87,13 @@ def click_cart_icon(context):
 @then("Verify 'Your Shopping Cart is empty.' text present")
 def verify_shopping_cart_is_empty(context):
     context.app.main_page.Verify_Your_Shopping_Cart_is_empty_text_present()
+
+
+@when('Hover over new arrivals options')
+def hover_over_new_arrivals_options(context):
+    context.app.header.hover_over_new_arrivals_options()
+
+
+@then('Verify correct options present')
+def Verify_correct_options_present(context):
+    context.app.header.hover_over_new_arrivals_options()
