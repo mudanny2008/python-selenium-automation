@@ -1,56 +1,42 @@
-#Even First
-#Your input is an array of integers, and you have to reorder its entries so that the even entries appear first. You are required to solve it without allocating additional storage (operate with the input array).
-#Example: [7, 3, 5, 6, 4, 10, 3, 2] Return [6, 4, 10, 2, 7, 3, 5, 3]
-
-arr = [7, 3, 5, 6, 4, 10, 3, 2]
-def segregateEvenOdd(arr):
-    left, right = 0, len(arr) - 1
-
-    while left < right:
-        while (arr[left] % 2 == 0 and left < right):
-            left += 1
-        while (arr[right] % 2 == 1 and left < right):
-            right -= 1
-
-        if (left < right):
-            arr[left], arr[right] = arr[right], arr[left]
-            left += 1
-            right = right - 1
-
-segregateEvenOdd(arr)
-print(arr)
+#Split in Half
+#Given a string. Split it into two equal parts. Swap these parts and return the result.
+#If the string has odd characters, the first part should be one character greater than the second part.
+#Example: string = 'bbbbbcaaaaa'. Result = ‘aaaaabbbbbc’.
 
 
+string = 'bbbbbcaaaaa'
+Result = 'aaaaabbbbbc'
 
-# 2.    Increment a Number
-# Write a program that takes as input an array of digits encoding a nonnegative decimal integer D and updates the array to represent the integer D + 1.
-# For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0].
+def split_in_half(s):
+    length = len(s)
+    half = length // 2
+    add = 0
+    if length % 2:
+        add = 1
 
-vect = [1, 2, 9]
-def number(a):
-    n = len(a)
+    left = s[:half + add]
+    right = s[half + add:]
 
-    a[n - 1] += 1
-    carry = a[n - 1] / 10
-    a[n - 1] = a[n - 1] % 10
 
-    for i in range(n - 2, -1, -1):
-        if (carry == 1):
-            a[i] += 1
-            carry = a[i] / 10
-            a[i] = a[i] % 10
+    return right + left
 
-    if (carry == 1):
-        a.insert(0, 1)
-number(vect)
+print(split_in_half(string))
 
-print(vect)
 
-#If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
-#Find the sum of all the multiples of 3 or 5 below 1000.
+#Unique Characters in String
+#Given a string, determine if it consists of all unique characters.
+#For example, the string 'abcde' has all unique characters and should return True.
+#The string 'aabcde' contains duplicate characters and should return False.
 
-total_sum = 0
-for i in range(1, 1000):
-    if (i % 3 == 0 or i % 5 == 0):
-        total_sum = total_sum + i
-print(total_sum)
+def uni_char(s):
+    return len(set(s)) == len(s)
+
+
+posit_string = 'abcde'
+negat_string = 'aabcde'
+
+print(uni_char(posit_string))
+print(uni_char(negat_string))
+
+
+
